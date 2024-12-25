@@ -94,8 +94,8 @@ public class AppTest extends TestCase {
     public void testContains() {
         Deque<Integer> javaDeque = new ArrayDeque<>();
         Deque<Integer> myDeque = new MyArrayDeque<>();
-        javaDeque.addAll(List.of(1,2,3,4,5));
-        myDeque.addAll(List.of(1,2,3,4,5));
+        javaDeque.addAll(Arrays.asList(1,2,3,4,5));
+        myDeque.addAll(Arrays.asList(1,2,3,4,5));
         assertEquals(javaDeque.contains(3), myDeque.contains(3));
         assertEquals(javaDeque.contains(6), myDeque.contains(6));
     }
@@ -103,8 +103,8 @@ public class AppTest extends TestCase {
     public void testRemoveIf() {
         Deque<Integer> javaDeque = new ArrayDeque<>();
         Deque<Integer> myDeque = new MyArrayDeque<>();
-        javaDeque.addAll(List.of(1,2,3,4,5,6));
-        myDeque.addAll(List.of(1,2,3,4,5,6));
+        javaDeque.addAll(Arrays.asList(1,2,3,4,5,6));
+        myDeque.addAll(Arrays.asList(1,2,3,4,5,6));
         Predicate<Integer> isEven = number -> number % 2 == 0;
         javaDeque.removeIf(isEven);
         myDeque.removeIf(isEven);
@@ -114,9 +114,9 @@ public class AppTest extends TestCase {
     public void testRetainAll() {
         Deque<Integer> javaDeque = new ArrayDeque<>();
         Deque<Integer> myDeque = new MyArrayDeque<>();
-        javaDeque.addAll(List.of(1,2,3,4,5));
-        myDeque.addAll(List.of(1,2,3,4,5));
-        List<Integer> toRetain = List.of(1,3,5);
+        javaDeque.addAll(Arrays.asList(1,2,3,4,5));
+        myDeque.addAll(Arrays.asList(1,2,3,4,5));
+        List<Integer> toRetain = Arrays.asList(1,3,5);
         javaDeque.retainAll(toRetain);
         myDeque.retainAll(toRetain);
         assertArrayEquals(javaDeque.toArray(), myDeque.toArray());
